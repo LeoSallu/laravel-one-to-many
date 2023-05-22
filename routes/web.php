@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,9 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::resource('projects', ProjectController::class);
 });
+Route::middleware('auth')->group(function () {
+    Route::resource('types', TypeController::class);
+});
+
 
 require __DIR__.'/auth.php';

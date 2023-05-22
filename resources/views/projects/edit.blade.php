@@ -49,7 +49,6 @@
                 </label>
                 <input class="form-check-input" type="checkbox" id="set_image" name="set_image">
             </div>
-
             <button type="submit" class="btn btn-danger">Submit</button>
         </form>
     </div>

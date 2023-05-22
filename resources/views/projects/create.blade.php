@@ -38,6 +38,15 @@
                 <label for="image" class="form-label">Image</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Type</label>
+                <select class="form-select" name="type" id="type">
+                    <option value="">Select type</option>
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" {{ old('type') == $type->id ? 'selected' : '' }}>{{ $type->type }}</option>
+                    @endforeach
+                </select>
+            </div>
             <button type="submit" class="btn btn-danger">Submit</button>
         </form>
     </div>
