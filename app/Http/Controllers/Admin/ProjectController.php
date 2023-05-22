@@ -81,7 +81,7 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         $data = $request->validated();
-        if(empty($data['set_image'])){
+        if(!$request->boolean('set_image')){
             if($project->image){
                 Storage::delete($project->image);
                 $project->image = null;
@@ -89,7 +89,7 @@ class ProjectController extends Controller
         } else {
             if (isset($data['image'])) {
                 if($project->image){
-                    Storage::delete($project->image);
+                    // Storage::delete($project->image);
                 }
                 $project->image = Storage::put('uploads', $data['image']);
             }

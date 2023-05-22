@@ -30,7 +30,7 @@ class UpdateProjectRequest extends FormRequest
             'contributors'=>'nullable|string|max:30',
             'languages'=>'nullable|string|max:20',
             'image'=>'nullable|image',
-            'set_image' => 'boolean'
+            'set_image' => 'nullable'
         ];
     }
 }
