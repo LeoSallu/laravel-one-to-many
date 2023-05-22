@@ -84,14 +84,14 @@ class ProjectController extends Controller
         if(!$request->boolean('set_image')){
             if($project->image){
                 Storage::delete($project->image);
-                $project->image = null;
+                $data['image'] = null;
             }
         } else {
             if (isset($data['image'])) {
                 if($project->image){
-                    // Storage::delete($project->image);
+                    Storage::delete($project->image);
                 }
-                $project->image = Storage::put('uploads', $data['image']);
+                $data['image'] = Storage::put('uploads', $data['image']);
             }
         }
         $project->update($data);
